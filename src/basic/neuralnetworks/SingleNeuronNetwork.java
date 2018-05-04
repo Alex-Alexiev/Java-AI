@@ -33,7 +33,7 @@ public class SingleNeuronNetwork {
 		if (input.getLength() != numInputs) {
 			throw new IllegalArgumentException("Vector is wrong size");
 		}
-		return sigmoid(input.dot(weights));
+		return sigmoid((input.dot(weights))/numInputs);
 	}
 	
 	private double sigmoid(double value) {

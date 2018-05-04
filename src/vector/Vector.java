@@ -27,7 +27,7 @@ public class Vector {
 		for (int i = 0; i < getLength(); i++) {
 			total += this.get(i)*v.get(i);
 		}
-		return total/getLength();
+		return total;
 	}
 
 	public Vector scalarMultiply(double scalar) {
