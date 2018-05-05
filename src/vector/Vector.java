@@ -5,7 +5,10 @@ public class Vector {
 	private double[] vector;
 	
 	public Vector(double[] vector) {
-		this.vector = vector;
+		this.vector = new double[vector.length];
+		for (int i = 0; i < vector.length; i++) {
+			this.vector[i] = vector[i];
+		}
 	}
 	
 	public Vector add(Vector v) {
