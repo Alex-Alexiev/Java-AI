@@ -5,7 +5,7 @@ public class Generation {
 	
 	private int size;
 	private Gene[] population;
-	private double overLapPercent = 0.9;
+	private double overLapPercent = 0.8;
 	
 	public Generation(int size, int perimeter) {
 		this.size = size;
@@ -44,13 +44,14 @@ public class Generation {
 	}
 	
 	public double fitness() {
+		Arrays.sort(population);
 		double maxArea = getTopGene().getArea();
 		double sum = 0;
-		for (Gene g : population) {
-			sum += g.getArea();
+		for (int i = 0; i < 3; i++) {
+			sum += population[i].getArea();
 		}
-		double averageArea = sum/population.length;
-		return (maxArea-averageArea)/averageArea;
+		double averageArea = sum/3;
+		return (maxArea-averageArea)/maxArea;
 	}
 	
 	public String toString() {

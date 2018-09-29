@@ -5,7 +5,7 @@ public class Gene implements Comparable<Gene>{
 	private double perimeter;
 	private double length;
 	private double width;
-	private double maxOffset = 0.5;
+	private double maxOffset = 0.005;
 	
 	public Gene(double perimeter) {
 		this.perimeter = perimeter;
@@ -16,6 +16,7 @@ public class Gene implements Comparable<Gene>{
 	public Gene(double length, double width) {
 		this.length = length;
 		this.width = width;
+		this.perimeter = 2*length+2*width;
 	}
 	
 	public Gene mutate() {
