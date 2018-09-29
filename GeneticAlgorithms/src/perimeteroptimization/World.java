@@ -14,10 +14,8 @@ public class World {
 	}
 	
 	public void evolve() {
-		//generations.get(currentGeneration).fitness() > goal
-		while(currentGeneration < 10000) {
+		while(generations.get(currentGeneration).fitness() > goal) {
 			generations.add(generations.get(currentGeneration).reBirth());
-			//System.out.println(generations.get(currentGeneration));
 			currentGeneration++;
 		}
 	}
