@@ -6,6 +6,7 @@ import processing.core.PApplet;
 public class Main extends PApplet{
 	
 	public static World world = new World(10, 400);
+	public static int width, height;
 
 	public static void main(String[] args) {
 		System.out.println(world);
@@ -13,7 +14,9 @@ public class Main extends PApplet{
 	}
 	
 	public void settings() {
-		size(500,500);
+		width = 400;
+		height = 400;
+		size(width,height);
 	}
 	
 	public void setup() {
@@ -25,7 +28,9 @@ public class Main extends PApplet{
 		fill(0);
 		stroke(255);
 		Gene current = world.evolveOnce().getTopGene();
-		rect(30,30, (int) current.getLength(), (int) current.getWidth());		
+		int bLength = (int) current.getLength();
+		int bWidth = (int) current.getWidth();
+		rect((width/2)-(bWidth/2), (height/2)-(bLength/2), bWidth, bLength);		
 	}
 
 }
