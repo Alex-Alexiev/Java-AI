@@ -5,7 +5,7 @@ import processing.core.PApplet;
 
 public class Main extends PApplet{
 	
-	public static World world = new World(10, 400);
+	public static World world = new World(10, 1000);
 	public static int width, height;
 
 	public static void main(String[] args) {

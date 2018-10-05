@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<classpath>
+	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
+	<classpathentry kind="src" path="GeneticAlgorithms/src"/>
+	<classpathentry kind="src" path="ProcessingTemplate/src"/>
+	<classpathentry kind="src" path="SupervisedRegression/src"/>
+	<classpathentry kind="lib" path="GeneticAlgorithms/core.jar"/>
+	<classpathentry kind="output" path="GeneticAlgorithms/bin"/>
+</classpath>
