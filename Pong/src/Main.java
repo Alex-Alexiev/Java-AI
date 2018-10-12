@@ -41,14 +41,29 @@ public class Main extends PApplet {
 	public void draw() {
 		background(0);
 		fill(255);
-		stroke(255);
-		ballX += ballVelX;
-		ballY += ballVelY;
-		rect(ballX, ballY, bSize, bSize);
+		stroke(255);    
 
 		p1Y = ballY;
 		p2Y = ballY;
+		
+		checkBoundaries();		
+		updateVelocities();
 
+		rect(ballX, ballY, bSize, bSize);
+		rect(p1X, p1Y, pWidth, pHeight);
+		rect(p2X, p2Y, pWidth, pHeight);
+	}
+	
+	public void checkBoundaries() {
+		if (p1Y < 0) p1Y = 0;
+		if (p2Y < 0) p2Y = 0;
+		if (p1Y + pHeight > height) p1Y = height - pHeight;
+		if (p2Y + pHeight > height) p2Y = height - pHeight;
+	}
+	
+	public void updateVelocities() {
+		ballX += ballVelX;
+		ballY += ballVelY;
 		if (ballX < 0 || ballX > width - bSize) {
 			ballVelX = -ballVelX;
 		}
@@ -61,9 +76,6 @@ public class Main extends PApplet {
 		if (ballX+bSize > p2X) {
 			ballVelX = -ballVelX;
 		}
-		
-		rect(p1X, p1Y, pWidth, pHeight);
-		rect(p2X, p2Y, pWidth, pHeight);
 	}
 
 }
