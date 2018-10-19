@@ -5,6 +5,8 @@ import vector.Vector;
 public class Neuron {
 	
 	Vector weights;
+	double bias;
+	double learningRate = 0.4;
 	
 	public Neuron(int inputSize) {
 		double[] weightsArr = new double[inputSize];
@@ -12,10 +14,11 @@ public class Neuron {
 			weightsArr[i] = Math.random()*2-1;
 		}
 		weights = new Vector(weightsArr);
+		bias = Math.random()*400-200;
 	}
 
-	public int feed(Vector inputs) throws Exception{
-		return activation(inputs.dot(weights));
+	public int feed(Vector inputs) {
+		return activation(inputs.dot(weights)+bias);
 	}
 	
 	/*
@@ -28,6 +31,16 @@ public class Neuron {
 	 * 
 	 * do this over all the training samples
 	 */
+	
+	public void train(DataPoint[] dataPoints) {
+		for (DataPoint input : dataPoints) {
+			int o = feed(input.getVector());
+			double error = (o-input.getLabel())*learningRate;
+			Vector weightDeltas = input.getVector().scalarMultiply(error);
+			weights = weights.add(weightDeltas);
+			bias += error;
+		}
+	}
 	
 	public int activation(double x) {
 		if (x > 0) return 1;
