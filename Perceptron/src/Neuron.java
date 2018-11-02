@@ -15,7 +15,7 @@ public class Neuron {
 	
 	public int sigmoid(double x) {
 		if (x > 0) return 1;
-		return 0;
+		return -1;
 	}
 	
 }
