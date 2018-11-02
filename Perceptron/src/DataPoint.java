@@ -13,9 +13,9 @@ public class DataPoint {
 			this.label = 0;
 		}
 	}
-	
+		
 	public static DataPoint[] generateRandomData(int numDatas, int rangeSize) {
-		DataPoint[] ret = new DataPoint[rangeSize];
+		DataPoint[] ret = new DataPoint[numDatas];
 		for (int i = 0; i < ret.length; i++) {
 			int x = (int)(Math.random()*rangeSize)-(rangeSize/2);
 			int y = (int)(Math.random()*rangeSize)-(rangeSize/2);

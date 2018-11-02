@@ -15,8 +15,9 @@ public class Main extends PApplet {
 	
 	public void settings() {
 		size(1000,1000);
-		randomData = DataPoint.generateRandomData(300, width);
+		randomData = DataPoint.generateRandomData(1000, width);
 		n1  = new Neuron(2);
+		n1.train(randomData, 1000000, 0.1);
 	}
 	
 	public void draw() {
