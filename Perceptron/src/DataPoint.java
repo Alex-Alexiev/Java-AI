@@ -3,14 +3,15 @@ public class DataPoint {
 	
 	private int x, y;
 	private int label;
+	private static final int SLOPE = 1;
 	
 	public DataPoint(int x, int y) {
 		this.x = x;
 		this.y = y;
-		if (y > x) {
+		if (y > SLOPE*x) {
 			this.label = 1;
 		} else {
-			this.label = 0;
+			this.label = -1;
 		}
 	}
 		
