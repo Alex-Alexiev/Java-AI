@@ -10,7 +10,7 @@ public class Main extends PApplet {
 	}
 	
 	public void setup() {
-		frameRate(20);
+		frameRate(5);
 	}
 	
 	public void settings() {
@@ -22,7 +22,7 @@ public class Main extends PApplet {
 	public void draw() {
 		background(150);
 		showData(randomData);
-		n1.train(randomData, 100, 1);
+		n1.train(randomData, 1, 0.1);
 	}
 	
 	public void showData(DataPoint[] dataPoints) {

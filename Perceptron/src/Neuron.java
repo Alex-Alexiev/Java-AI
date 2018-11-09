@@ -16,7 +16,7 @@ public class Neuron {
 				double yHat = d.getLabel();
 				Vector inputs = d.getVector();
 				double y = feed(inputs);
-				deltaW = deltaW.add(inputs.scalarMultiply(-(yHat-y)*learningRate));
+				deltaW = deltaW.add(inputs.scalarMultiply((yHat-y)*learningRate));
 			}
 			weights = weights.add(deltaW);
 		}
