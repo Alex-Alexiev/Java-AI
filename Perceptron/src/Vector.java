@@ -14,7 +14,7 @@ public class Vector {
 	public static Vector getRandomVector(int size, int range) {
 		double[] vals = new double[size];
 		for (int i = 0; i < vals.length; i++) {
-			vals[i] = Math.random()*range-range/2;
+			vals[i] = Math.random()*range/*-range/2*/;
 		}
 		return new Vector(vals);
 	}
@@ -49,6 +49,15 @@ public class Vector {
 	
 	public void set(int i, double val) {
 		nums[i] = val;
+	}
+	
+	public String toString() {
+		String ret = "[";
+		for (double n : nums) {
+			ret += n+",";
+		}
+		ret = ret.substring(0, ret.length()-2) + "]";
+		return ret;
 	}
 	
 }

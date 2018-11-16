@@ -1,17 +1,19 @@
 
 public class DataPoint {
 	
-	private int x, y;
+	private int x, y, bias;
 	private int label;
 	private static final int SLOPE = 1;
+	private static final int Y_INT = 100;
 	
 	public DataPoint(int x, int y) {
+		this.bias = 1000;
 		this.x = x;
 		this.y = y;
-		if (y > SLOPE*x) {
+		if (y > SLOPE*x+Y_INT) {
 			this.label = 1;
 		} else {
-			this.label = -1;
+			this.label = 0;
 		}
 	}
 		
@@ -24,9 +26,9 @@ public class DataPoint {
 		}
 		return ret;
 	}
-	
+		
 	public Vector getVector() {
-		return new Vector(new double[] {x,y});
+		return new Vector(new double[] {x,y, bias});
 	}
 
 	public int getX() {
