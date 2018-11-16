@@ -1,7 +1,7 @@
 import processing.core.PApplet;
 
 public class Main extends PApplet {
-		
+	
 	private static DataPoint[] randomData;
 	private static Neuron n1;
 	
@@ -22,7 +22,7 @@ public class Main extends PApplet {
 	public void draw() {
 		background(150);
 		showData(randomData);
-		n1.train(randomData, 1, 0.1);
+		n1.train(randomData, 1, 1);
 	}
 	
 	public void showData(DataPoint[] dataPoints) {

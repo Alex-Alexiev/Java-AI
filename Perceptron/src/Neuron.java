@@ -9,7 +9,7 @@ public class Neuron {
 		/*
 		 * the last item in the weight vector is the bias 
 		 */
-		this.weights = new Vector(new double[] {-1,1, 0});//Vector.getRandomVector(numInputs+1, 1); //
+		this.weights = Vector.getRandomVector(numInputs+1, 1); 
 	}
 	
 	/*
@@ -38,13 +38,10 @@ public class Neuron {
 	}
 	
 	public double feed(Vector inputs) { 
-		if (Math.abs(inputs.get(0)) < 10 && Math.abs(inputs.get(1)) < 10) {
-			//System.out.println("salad");
-		}
-		return sigmoid(inputs.dot(weights));
+		return activation(inputs.dot(weights));
 	}
 	
-	public double sigmoid(double x) {
+	public double activation(double x) {
 		if (x > 0) return 1;
 		return 0;
 		//return ((1.0/(1.0+Math.pow(Math.E, -x))));

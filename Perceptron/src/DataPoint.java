@@ -3,11 +3,12 @@ public class DataPoint {
 	
 	private int x, y, bias;
 	private int label;
-	private static final int SLOPE = 1;
-	private static final int Y_INT = 100;
+	private int max;
+	private static final double SLOPE = 1.5;
+	private static final int Y_INT = 300;
 	
-	public DataPoint(int x, int y) {
-		this.bias = 1000;
+	public DataPoint(int x, int y, int maxVal) {
+		this.bias = maxVal;
 		this.x = x;
 		this.y = y;
 		if (y > SLOPE*x+Y_INT) {
@@ -22,7 +23,7 @@ public class DataPoint {
 		for (int i = 0; i < ret.length; i++) {
 			int x = (int)(Math.random()*rangeSize)-(rangeSize/2);
 			int y = (int)(Math.random()*rangeSize)-(rangeSize/2);
-			ret[i] = new DataPoint(x, y);
+			ret[i] = new DataPoint(x, y, rangeSize/2);
 		}
 		return ret;
 	}
