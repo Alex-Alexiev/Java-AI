@@ -1,14 +1,13 @@
 
 public class DataPoint {
 	
-	private int x, y, bias;
+	private int x, y, biasInput;
 	private int label;
-	private int max;
-	private static final double SLOPE = 1.5;
-	private static final int Y_INT = 300;
+	private static final double SLOPE = 0.4;
+	private static final int Y_INT = 200;
 	
-	public DataPoint(int x, int y, int maxVal) {
-		this.bias = maxVal;
+	public DataPoint(int x, int y, int maxInput) {
+		this.biasInput = maxInput;
 		this.x = x;
 		this.y = y;
 		if (y > SLOPE*x+Y_INT) {
@@ -29,7 +28,7 @@ public class DataPoint {
 	}
 		
 	public Vector getVector() {
-		return new Vector(new double[] {x,y, bias});
+		return new Vector(new double[] {x,y, biasInput});
 	}
 
 	public int getX() {
