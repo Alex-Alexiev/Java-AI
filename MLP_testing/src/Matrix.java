@@ -16,7 +16,26 @@ public class Matrix {
 			}
 		}
 	}
+	
+	public void randomize() {
+		for (int r = 0; r < mat.length; r++) {
+			for (int c = 0; c < mat[r].length; c++) {
+				mat[r][c] = Math.random();
+			}
+		}
+	}
 
+	
+	public static Matrix elementWiseFunction(Matrix mat, Functions nonLinearizer) {
+		Matrix ret = new Matrix(mat.rows(), mat.cols());
+		for (int r = 0; r < ret.rows(); r++) {
+			for (int c = 0; c < ret.cols(); c++) {
+				ret.set(r, c, nonLinearizer.function(mat.get(r, c)));
+			}
+		}
+		return ret;
+	}
+	
 	public String toString() {
 		String ret = "";
 		DecimalFormat df = new DecimalFormat("#.#");
@@ -74,6 +93,16 @@ public class Matrix {
 			}
 		}
 		return result;
+	}
+	
+	public static Matrix addDown(Matrix mat, Matrix row) {
+		Matrix ret = new Matrix(mat.rows(), mat.cols());
+		for (int r = 0; r < mat.rows(); r++) {
+			for (int c = 0; c < mat.cols(); c++) {
+				ret.set(r, c, mat.get(r,c)+row.get(0, c));
+			}
+		}
+		return ret;
 	}
 
 	public void set(int r, int c, double val) {
